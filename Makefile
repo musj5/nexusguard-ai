@@ -1,4 +1,4 @@
-# Copyright 2024 Mustafa Al-Aqrawi (Smile Spoon). All rights reserved.
+# Copyright 2026 Mustafa Al-Aqrawi (Smile Spoon). All rights reserved.
 # Use of this source code is governed by the MIT License.
 
 .PHONY: all build test clean install run lint fmt vet docker
