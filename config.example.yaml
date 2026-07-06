@@ -1,0 +1,95 @@
+# NexusGuard AI Configuration Example
+# Author: Mustafa Al-Aqrawi (Smile Spoon)
+# Copy this file to nexusguard.yaml and customize as needed
+
+server:
+  port: 8080
+  read_timeout: 30s
+  write_timeout: 120s
+  idle_timeout: 60s
+
+providers:
+  # OpenAI - Primary Provider
+  - name: openai
+    base_url: https://api.openai.com
+    priority: 1
+    enabled: true
+    timeout: 60s
+    retries: 3
+    weight: 100
+    cost_per_1k_input: 0.0015
+    cost_per_1k_output: 0.002
+
+  # Anthropic - Fallback 1
+  - name: anthropic
+    base_url: https://api.anthropic.com
+    priority: 2
+    enabled: true
+    timeout: 60s
+    retries: 3
+    weight: 80
+    cost_per_1k_input: 0.003
+    cost_per_1k_output: 0.015
+
+  # Google Gemini - Fallback 2
+  - name: gemini
+    base_url: https://generativelanguage.googleapis.com
+    priority: 3
+    enabled: true
+    timeout: 60s
+    retries: 2
+    weight: 70
+    cost_per_1k_input: 0.0005
+    cost_per_1k_output: 0.0015
+
+  # Local LLM (e.g., Ollama, LM Studio)
+  - name: local
+    base_url: http://localhost:11434
+    priority: 4
+    enabled: false
+    timeout: 120s
+    retries: 1
+    weight: 50
+    cost_per_1k_input: 0
+    cost_per_1k_output: 0
+
+cache:
+  enabled: true
+  ttl: 24h
+  max_size: 1073741824  # 1GB
+  path: .nexusguard/cache
+  similarity_threshold: 0.95
+
+mask:
+  enabled: true
+  mask_emails: true
+  mask_phones: true
+  mask_credit_cards: true
+  mask_ssn: true
+  mask_api_keys: true
+  mask_ips: true
+  placeholder: "[REDACTED]"
+
+budget:
+  enabled: true
+  daily_limit: 5.0
+  monthly_limit: 50.0
+  warning_threshold: 0.8
+  hard_stop: true
+
+fallback:
+  enabled: true
+  timeout: 30s
+  max_retries: 3
+  retry_backoff: 1s
+  circuit_breaker_threshold: 5
+
+logging:
+  level: info
+  format: json
+  console: true
+
+tui:
+  theme: cyber
+  refresh_interval: 2
+  show_animations: true
