@@ -415,7 +415,7 @@ Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md)
 ```
 MIT License
 
-Copyright (c) 2024 Mustafa Al-Aqrawi (Smile Spoon)
+Copyright (c) 2026 Mustafa Al-Aqrawi (Smile Spoon)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
