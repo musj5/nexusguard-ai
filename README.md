@@ -56,10 +56,10 @@
 
 ```bash
 # Install directly with go install
-go install github.com/smilespoon/nexusguard-ai/cmd/nexusguard@latest
+go install github.com/musj5/nexusguard-ai
 
 # Or clone and build
-git clone https://github.com/smilespoon/nexusguard-ai.git
+git clone https://github.com/musj5/nexusguard-ai 
 cd nexusguard-ai
 go build -o nexusguard ./cmd/nexusguard
 ```
